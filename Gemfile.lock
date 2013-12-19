@@ -75,6 +75,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
     minitest-spec-rails (4.7.6)
@@ -86,6 +87,10 @@ GEM
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.3)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
@@ -115,6 +120,7 @@ GEM
     simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
+    slop (3.4.7)
     sprockets (2.10.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -158,6 +164,7 @@ DEPENDENCIES
   minitest-spec-rails
   minitest-wscolor
   pg
+  pry
   quiet_assets
   rails (= 4.0.0)
   rails_layout
