@@ -1,4 +1,10 @@
 <%# add navigation links to this file %>
+<li><%= link_to 'Gallery 1', gallery_1_path %></li>
+<li><%= link_to 'Gallery 2', gallery_2_path %></li>
+<li><%= link_to 'Gallery 3', gallery_3_path %></li>
+<li><%= link_to 'Gallery 4', gallery_4_path %></li>
+<li><%= link_to 'Biography', bio_path %></li>
+
 <% if user_signed_in? %>
   <li><%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
@@ -9,3 +15,4 @@
 <% else %>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
+
