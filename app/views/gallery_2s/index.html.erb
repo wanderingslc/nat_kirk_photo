@@ -1,0 +1,27 @@
+<h1>Listing gallery_2s</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gallery_2s.each do |gallery_2| %>
+      <tr>
+        <td><%= gallery_2.description %></td>
+        <td><%= link_to 'Show', gallery_2 %></td>
+        <td><%= link_to 'Edit', edit_gallery_2_path(gallery_2) %></td>
+        <td><%= link_to 'Destroy', gallery_2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gallery 2', new_gallery_2_path %>
