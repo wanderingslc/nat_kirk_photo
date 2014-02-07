@@ -1,0 +1,58 @@
+
+
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
+<h1>Listing transcendences</h1>
+  
+
+  <div class="col-md-4">
+    <% @transcendences.each_with_index do |transcendence, index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-transcendence" data-slide-to="<%= index %>">
+      <%= image_tag transcendence.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-transcendence" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+ 
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @transcendences.each_with_index do |transcendence, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag transcendence.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
+    <% end %>
+   
+    
+  </div>
+
+  <!-- Controls -->
+  
+</div>
+
+  </div>
+
+   
+  <tbody>
+    <% @transcendences.each do |transcendence| %>
+      <tr>
+        <td><%= transcendence.title %></td>
+        <td><%= transcendence.description %></td>
+        <td><%= transcendence.image_url %></td>
+        <td><%= link_to 'Show', transcendence %></td>
+        <td><%= link_to 'Edit', edit_transcendence_path(transcendence) %></td>
+        <td><%= link_to 'Destroy', transcendence, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Transcendence', new_transcendence_path %>

@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :transcendences
+
   resources :pinholes
 
   resources :gallery_2s

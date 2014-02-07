@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @transcendence.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @transcendence.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @transcendence.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_transcendence_path(@transcendence) %> |
+<%= link_to 'Back', transcendences_path %>
