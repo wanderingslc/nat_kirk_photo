@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @perspective.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @perspective.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @perspective.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_perspective_path(@perspective) %> |
+<%= link_to 'Back', perspectives_path %>

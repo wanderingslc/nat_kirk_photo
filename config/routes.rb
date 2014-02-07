@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :perspectives
+
   resources :promises
 
   resources :mementos
