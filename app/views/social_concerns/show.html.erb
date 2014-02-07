@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @social_concern.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @social_concern.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @social_concern.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_social_concern_path(@social_concern) %> |
+<%= link_to 'Back', social_concerns_path %>

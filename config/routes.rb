@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :social_concerns
+
   resources :transcendences
 
   resources :pinholes

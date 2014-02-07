@@ -1,0 +1,51 @@
+
+
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
+<h1>Social Concerns Portfolio</h1>
+  
+
+  <div class="col-md-4">
+    <% @social_concerns.each_with_index do |social index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-social" data-slide-to="<%= index %>">
+      <%= image_tag social.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-social" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @social_concerns.each_with_index do |social, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag social.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
+    <% end %>
+   
+    
+  </div>
+
+  <tbody>
+    <% @social_concerns.each do |social_concern| %>
+      <tr>
+        <td><%= social_concern.title %></td>
+        <td><%= social_concern.description %></td>
+        <td><%= social_concern.image_url %></td>
+        <td><%= link_to 'Show', social_concern %></td>
+        <td><%= link_to 'Edit', edit_social_concern_path(social_concern) %></td>
+        <td><%= link_to 'Destroy', social_concern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Social concern', new_social_concern_path %>
