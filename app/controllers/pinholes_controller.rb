@@ -69,6 +69,6 @@ class PinholesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pinhole_params
-      params.require(:pinhole).permit(:title, :description, :image_url)
+      params.require(:pinhole).permit(:title, :description, :image_url, :image )
     end
 end

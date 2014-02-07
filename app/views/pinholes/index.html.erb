@@ -1,31 +1,65 @@
-<h1>Listing pinholes</h1>
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <h1>Pinhole Pictures</h1>
 
-  <tbody>
-    <% @pinholes.each do |pinhole| %>
-      <tr>
-        <td><%= pinhole.title %></td>
-        <td><%= pinhole.description %></td>
-        <td><%= pinhole.image_url %></td>
-        <td><%= link_to 'Show', pinhole %></td>
-        <td><%= link_to 'Edit', edit_pinhole_path(pinhole) %></td>
-        <td><%= link_to 'Destroy', pinhole, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <div class="col-md-4">
+    <% @pinholes.each_with_index do |pinhole, index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-pinhole" data-slide-to="<%= index %>">
+      <%= image_tag pinhole.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-pinhole" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @pinholes.each_with_index do |pinhole, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag pinhole.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
     <% end %>
-  </tbody>
-</table>
+   
+    
+  </div>
 
-<br>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
 
-<%= link_to 'New Pinhole', new_pinhole_path %>
+  </div>
+
+    <tbody>
+      <% @pinholes.each do |pinhole| %>
+        <tr>
+          <td><%= pinhole.title %></td>
+          <td><%= pinhole.description %></td>
+          <td><%= pinhole.image_url %></td>
+          <td><%= link_to 'Show', pinhole %></td>
+          <td><%= link_to 'Edit', edit_pinhole_path(pinhole) %></td>
+          <td><%= link_to 'Destroy', pinhole, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Pinhole', new_pinhole_path %>
+</div>
