@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :portraits
+
   resources :perspectives
 
   resources :promises

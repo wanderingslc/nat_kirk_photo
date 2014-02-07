@@ -1,0 +1,48 @@
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
+
+  <h1>Portraits</h1>
+
+  <div class="col-md-4">
+    <% @portraits.each_with_index do |portrait, index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-portrait" data-slide-to="<%= index %>">
+      <%= image_tag portrait.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-portrait" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @portraits.each_with_index do |portrait, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag portrait.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
+    <% end %>
+   
+    
+  </div>
+  <tbody>
+    <% @portraits.each do |portrait| %>
+      <tr>
+        <td><%= portrait.title %></td>
+        <td><%= portrait.description %></td>
+        <td><%= portrait.image_url %></td>
+        <td><%= link_to 'Show', portrait %></td>
+        <td><%= link_to 'Edit', edit_portrait_path(portrait) %></td>
+        <td><%= link_to 'Destroy', portrait, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Portrait', new_portrait_path %>
