@@ -1,0 +1,49 @@
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
+
+  <h1>Promise of the Eternal Soul</h1>
+
+  <div class="col-md-4">
+    <% @promises.each_with_index do |promise, index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-promise" data-slide-to="<%= index %>">
+      <%= image_tag promise.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-promise" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @promises.each_with_index do |promise, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag promise.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
+    <% end %>
+   
+    
+  </div>
+
+  <tbody>
+    <% @promises.each do |promise| %>
+      <tr>
+        <td><%= promise.title %></td>
+        <td><%= promise.description %></td>
+        <td><%= promise.image_url %></td>
+        <td><%= link_to 'Show', promise %></td>
+        <td><%= link_to 'Edit', edit_promise_path(promise) %></td>
+        <td><%= link_to 'Destroy', promise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Promise', new_promise_path %>

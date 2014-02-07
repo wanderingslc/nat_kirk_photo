@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :promises
+
   resources :mementos
 
   resources :social_concerns
