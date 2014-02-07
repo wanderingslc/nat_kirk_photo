@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @pinhole.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pinhole.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @pinhole.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_pinhole_path(@pinhole) %> |
+<%= link_to 'Back', pinholes_path %>

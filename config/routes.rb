@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+  resources :pinholes
+
   resources :gallery_2s
 
   devise_for :users

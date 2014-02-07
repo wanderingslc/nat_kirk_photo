@@ -1,0 +1,31 @@
+<h1>Listing pinholes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image url</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pinholes.each do |pinhole| %>
+      <tr>
+        <td><%= pinhole.title %></td>
+        <td><%= pinhole.description %></td>
+        <td><%= pinhole.image_url %></td>
+        <td><%= link_to 'Show', pinhole %></td>
+        <td><%= link_to 'Edit', edit_pinhole_path(pinhole) %></td>
+        <td><%= link_to 'Destroy', pinhole, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pinhole', new_pinhole_path %>
