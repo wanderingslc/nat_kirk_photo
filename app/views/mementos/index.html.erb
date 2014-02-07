@@ -1,0 +1,49 @@
+<%= render 'layouts/portfolio_navigation' %>
+<div class="container">
+
+  <h1>Memento Pictures</h1>
+
+  <div class="col-md-4">
+    <% @mementos.each_with_index do |memento, index| %>
+    <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-memento" data-slide-to="<%= index %>">
+      <%= image_tag memento.image.url(:thumb), class: "img-responsive" %>
+    </div>
+    <% end %>  
+
+  </div>
+
+  <div class="col-md-8">
+    <div id="carousel-memento" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <% @mementos.each_with_index do |memento, index| %>
+        
+        <div class="item <%= 'active' if index == 0 %>" data-slide-number="<%= index %>">
+          <%= image_tag memento.image.url(:medium), class: "img-responsive" %>
+        </div>
+      
+    <% end %>
+   
+    
+  </div>
+
+  <tbody>
+    <% @mementos.each do |memento| %>
+      <tr>
+        <td><%= memento.title %></td>
+        <td><%= memento.description %></td>
+        <td><%= memento.image_url %></td>
+        <td><%= link_to 'Show', memento %></td>
+        <td><%= link_to 'Edit', edit_memento_path(memento) %></td>
+        <td><%= link_to 'Destroy', memento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Memento', new_memento_path %>

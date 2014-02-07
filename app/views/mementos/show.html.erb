@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @memento.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @memento.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @memento.image_url %>
+</p>
+
+<%= link_to 'Edit', edit_memento_path(@memento) %> |
+<%= link_to 'Back', mementos_path %>
