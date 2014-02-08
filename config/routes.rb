@@ -1,4 +1,6 @@
 NatKirkPhoto::Application.routes.draw do
+
+  resources "contact_forms", only: [:new, :create]
   resources :portraits
 
   resources :perspectives

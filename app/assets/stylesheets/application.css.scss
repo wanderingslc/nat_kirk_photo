@@ -12,3 +12,7 @@
  *= require framework_and_overrides
  *= require_tree .
  */
+
+.hidden {
+  display: none;
+}
