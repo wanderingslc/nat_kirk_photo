@@ -6,7 +6,7 @@
   
 
   <div class="col-md-4">
-    <% @social_concerns.each_with_index do |social index| %>
+    <% @social_concerns.each_with_index do |social, index| %>
     <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-social" data-slide-to="<%= index %>">
       <%= image_tag social.image.url(:thumb), class: "img-responsive" %>
     </div>

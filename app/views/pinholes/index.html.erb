@@ -1,9 +1,29 @@
 <%= render 'layouts/portfolio_navigation' %>
-<div class="container">
+<div class="">
+<div class="col-md-4">
+  <p>Pinhole Pictures</p>
+  <button class="btn btn-primary " data-toggle="modal" data-target="#myModal">statement</button>
+  
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Pinhole Pictures</h4>
+      </div>
+      <div class="modal-body">
+        <p>This is where the awesome artists statement will go.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <h1>Pinhole Pictures</h1>
-
-  <div class="col-md-4">
+  
     <% @pinholes.each_with_index do |pinhole, index| %>
     <div class=" side-gallery <%= 'active' if index == 0 %>" data-target="#carousel-pinhole" data-slide-to="<%= index %>">
       <%= image_tag pinhole.image.url(:thumb), class: "img-responsive" %>
